@@ -1,0 +1,1144 @@
+/*! atStyle.css v1.0.0 | MIT License | github.com/kiinlam/atStyle.css */
+
+/* View
+   ========================================================================== */
+
+/**
+ * 响应式布局
+ */
+
+@media screen and (max-width: 767px) {
+
+  [view="medium"] {
+    display: none !important;
+  }
+
+  [view="large"] {
+    display: none !important;
+  }
+
+  [view="small-hide"] {
+    display: none !important;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+
+  [view="small"] {
+    display: none !important;
+  }
+
+  [view="large"] {
+    display: none !important;
+  }
+
+}
+
+@media screen and (min-width: 1025px) {
+  
+  [view="small"] {
+    display: none !important;
+  }
+
+  [view="medium"] {
+    display: none !important;
+  }
+
+  [view="large-hide"] {
+    display: none !important;
+  }
+
+}
+
+/* Layout
+   ========================================================================== */
+
+/**
+ * 改变默认布局
+ */
+
+[layout="none"] {
+  display: none;
+}
+
+[layout="block"] {
+  display: block;
+}
+
+[layout="inline"] {
+  display: inline;
+}
+
+[layout="inline-block"] {
+  display: inline-block;
+}
+
+[layout="flex"] {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+}
+
+[layout="inline-flex"] {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: inline-flex;
+}
+
+/* Flex
+   ========================================================================== */
+
+/**
+ * 弹性盒比例
+ */
+
+[flex="1"] {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  flex: 1;
+}
+[flex="2"] {
+  -webkit-box-flex: 2;
+  -webkit-flex: 2;
+  flex: 2;
+}
+[flex="3"] {
+  -webkit-box-flex: 3;
+  -webkit-flex: 3;
+  flex: 3;
+}
+[flex="4"] {
+  -webkit-box-flex: 4;
+  -webkit-flex: 4;
+  flex: 4;
+}
+[flex="5"] {
+  -webkit-box-flex: 5;
+  -webkit-flex: 5;
+  flex: 5;
+}
+[flex="6"] {
+  -webkit-box-flex: 6;
+  -webkit-flex: 6;
+  flex: 6;
+}
+[flex="7"] {
+  -webkit-box-flex: 7;
+  -webkit-flex: 7;
+  flex: 7;
+}
+[flex="8"] {
+  -webkit-box-flex: 8;
+  -webkit-flex: 8;
+  flex: 8;
+}
+[flex="8"] {
+  -webkit-box-flex: 8;
+  -webkit-flex: 8;
+  flex: 8;
+}
+[flex="9"] {
+  -webkit-box-flex: 9;
+  -webkit-flex: 9;
+  flex: 9;
+}
+
+/**
+ * 弹性盒排列方向
+ */
+
+[flex-flow~="row"] {
+  -webkit-flex-direction: row;
+  flex-direction: row;
+}
+
+[flex-flow~="column"] {
+  -webkit-flex-direction: column;
+  flex-direction: column;
+}
+
+[flex-flow~="nowrap"] {
+  -webkit-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+}
+
+[flex-flow~="wrap"] {
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+/**
+ * 弹性盒对齐方式
+ * 主轴对齐方式 justify-content: flex-start | flex-end | center | space-between | space-around;
+ * 交叉轴对齐方式 align-items: flex-start | flex-end | center | baseline | stretch;
+ * 交叉轴多根轴线对齐方式 align-content: flex-start | flex-end | center | space-between | space-around | stretch;
+ */
+
+[flex-align="center"] {
+  -webkit-justify-content: center;
+  justify-content: center;
+
+  -webkit-align-items: center;
+  align-items: center;
+
+  -webkit-align-content: center;
+  align-content: center;
+}
+
+[flex-align~="x-start"] {
+  -webkit-justify-content: flex-start;
+  justify-content: flex-start;
+}
+
+[flex-align~="x-end"] {
+  -webkit-justify-content: flex-end;
+  justify-content: flex-end;
+}
+
+[flex-align~="x-center"] {
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+
+[flex-align~="x-between"] {
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+}
+
+[flex-align~="x-around"] {
+  -webkit-justify-content: space-around;
+  justify-content: space-around;
+}
+
+[flex-align~="y-start"] {
+  -webkit-align-items: flex-start;
+  align-items: flex-start;
+
+  -webkit-align-content: flex-start;
+  align-content: flex-start;
+}
+
+[flex-align~="y-end"] {
+  -webkit-align-items: flex-end;
+  align-items: flex-end;
+
+  -webkit-align-content: flex-end;
+  align-content: flex-end;
+}
+
+[flex-align~="y-center"] {
+  -webkit-align-items: center;
+  align-items: center;
+
+  -webkit-align-content: center;
+  align-content: center;
+}
+
+[flex-align~="y-stretch"] {
+  -webkit-align-items: stretch;
+  align-items: stretch;
+
+  -webkit-align-content: stretch;
+  align-content: stretch;
+}
+
+[flex-align~="y-baseline"] {
+  -webkit-align-items: baseline;
+  align-items: baseline;
+}
+
+[flex-align~="y-between"] {
+  -webkit-align-content: space-between;
+  align-content: space-between;
+}
+
+[flex-align~="y-around"] {
+  -webkit-align-content: space-around;
+  align-content: space-around;
+}
+
+/**
+ * 弹性盒单个子项目对齐方式，可覆盖align-items属性。默认值为auto
+ * align-self: auto | flex-start | flex-end | center | baseline | stretch;
+ */
+
+[flex-align="self-start"] {
+  -webkit-align-self: flex-start;
+  align-self: flex-start;
+}
+
+[flex-align="self-end"] {
+  -webkit-align-self: flex-end;
+  align-self: flex-end;
+}
+
+[flex-align="self-center"] {
+  -webkit-align-self: center;
+  align-self: center;
+}
+
+[flex-align="self-baseline"] {
+  -webkit-align-self: baseline;
+  align-self: baseline;
+}
+
+[flex-align="self-stretch"] {
+  -webkit-align-self: stretch;
+  align-self: stretch;
+}
+
+/* Margin
+   ========================================================================== */
+
+/**
+ * 外边距
+ */
+
+[margin="3"] {
+  margin: 3px;
+}
+
+[margin="5"] {
+  margin: 5px;
+}
+
+[margin="8"] {
+  margin: 8px;
+}
+
+[margin="10"] {
+  margin: 10px;
+}
+
+[margin="12"] {
+  margin: 12px;
+}
+
+[margin="16"] {
+  margin: 16px;
+}
+
+[margin="20"] {
+  margin: 20px;
+}
+
+[margin="auto"] {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Padding
+   ========================================================================== */
+
+/**
+ * 内边距
+ */
+
+[padding="3"] {
+  padding: 3px;
+}
+
+[padding="5"] {
+  padding: 5px;
+}
+
+[padding="8"] {
+  padding: 8px;
+}
+
+[padding="10"] {
+  padding: 10px;
+}
+
+[padding="12"] {
+  padding: 12px;
+}
+
+[padding="16"] {
+  padding: 16px;
+}
+
+[padding="20"] {
+  padding: 20px;
+}
+
+/* Box
+   ========================================================================== */
+
+/**
+ * 盒模型
+ */
+
+/**
+ * Size不含边框、padding
+ */
+
+[box="content"] {
+  -moz-box-sizing: content-box;
+  -ms-box-sizing: content-box;
+  box-sizing: content-box;
+}
+
+/**
+ * Size包含边框、padding
+ */
+
+[box="border"] {
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* Border
+   ========================================================================== */
+
+/**
+ * 边框线共6种，通过伪对象实现，分 before | after 两组，可组合出所有形式边框
+ * before: top | left | top-left;
+ * after: bottom | right | bottom-right;
+ */
+
+/**
+ * 上边框线
+ */
+
+[border~="top"] {
+  position: relative;
+}
+
+[border~="top"]::before {
+  content: " ";
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  height: 1px;
+  border-top: 1px solid #eaeaea;
+  -webkit-transform-origin: 0 0;
+          transform-origin: 0 0;
+  -webkit-transform: scaleY(0.5);
+          transform: scaleY(0.5);
+  z-index: 2;
+}
+
+/**
+ * 下边框线
+ */
+
+[border~="bottom"] {
+  position: relative;
+}
+
+[border~="bottom"]::after {
+  content: " ";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  border-bottom: 1px solid #eaeaea;
+  -webkit-transform-origin: 0 200%;
+          transform-origin: 0 200%;
+  -webkit-transform: scaleY(0.5);
+          transform: scaleY(0.5);
+  z-index: 2;
+}
+
+
+/**
+ * 左边框线
+ */
+
+[border~="left"] {
+  position: relative;
+}
+
+[border~="left"]::before {
+  content: " ";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  border-left: 1px solid #eaeaea;
+  -webkit-transform-origin: 0 0;
+          transform-origin: 0 0;
+  -webkit-transform: scaleX(0.5);
+          transform: scaleX(0.5);
+  z-index: 2;
+}
+
+/**
+ * 右边框线
+ */
+
+[border~="right"] {
+  position: relative;
+}
+
+[border~="right"]::after {
+  content: " ";
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  border-right: 1px solid #eaeaea;
+  -webkit-transform-origin: 200% 0;
+          transform-origin: 200% 0;
+  -webkit-transform: scaleX(0.5);
+          transform: scaleX(0.5);
+  z-index: 2;
+}
+
+/**
+ * 左上边框线
+ */
+
+[border~="top-left"] {
+  position: relative;
+}
+
+[border~="top-left"]::before {
+  content: " ";
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: -100%;
+  bottom: -100%;
+  border-top: 1px solid #eaeaea;
+  border-left: 1px solid #eaeaea;
+  -webkit-transform-origin: 0 0;
+          transform-origin: 0 0;
+  -webkit-transform: scale(0.5);
+          transform: scale(0.5);
+  z-index: 2;
+  pointer-events: none;
+}
+
+
+/**
+ * 右下边框线
+ */
+
+[border~="bottom-right"] {
+  position: relative;
+}
+
+[border~="bottom-right"]::after {
+  content: " ";
+  position: absolute;
+  left: -100%;
+  top: -100%;
+  right: 0;
+  bottom: 0;
+  border-right: 1px solid #eaeaea;
+  border-bottom: 1px solid #eaeaea;
+  -webkit-transform-origin: 100% 100%;
+          transform-origin: 100% 100%;
+  -webkit-transform: scale(0.5);
+          transform: scale(0.5);
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Text
+   ========================================================================== */
+
+/**
+ * 文本对齐
+ */
+
+[text~="left"] {
+    text-align: left;
+}
+[text~="center"] {
+    text-align: center;
+}
+[text~="right"] {
+    text-align: right;
+}
+
+/**
+ * 文本显示省略号
+ */
+
+[text~="ellipsis"] {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Font
+   ========================================================================== */
+
+/**
+ * 字体大小
+ */
+
+[font~="f11"] {
+    font-size: 11px;
+}
+
+[font~="f12"] {
+    font-size: 12px;
+}
+
+[font~="f13"] {
+    font-size: 13px;
+}
+
+[font~="f14"] {
+    font-size: 14px;
+}
+
+[font~="f15"] {
+    font-size: 15px;
+}
+
+[font~="f16"] {
+    font-size: 16px;
+}
+
+[font~="f18"] {
+    font-size: 18px;
+}
+
+[font~="f20"] {
+    font-size: 20px;
+}
+
+[font~="f24"] {
+    font-size: 24px;
+}
+
+[font~="f28"] {
+    font-size: 28px;
+}
+
+[font~="smaller"] {
+    font-size: 0.8em;
+}
+
+[font~="larger"] {
+    font-size: 1.2em;
+}
+
+/**
+ * 字体样式
+ */
+
+[font~="normal"] {
+    font-style: normal;
+}
+
+[font~="italic"] {
+    font-style: italic;
+}
+
+/**
+ * 字体粗细
+ */
+
+[font~="w100"] {
+    font-style: 100;
+}
+
+[font~="w400"] {
+    font-style: 400;
+}
+
+[font~="w700"] {
+    font-weight: 700;
+}
+
+/* Color
+   ========================================================================== */
+
+/**
+ * 字体颜色
+ */
+
+[color="white"] {
+    color: #fff;
+}
+
+[color="black"] {
+    color: #000;
+}
+
+[color="gray"] {
+    color: #898989;
+}
+
+[color="dark"] {
+    color: #404141;
+}
+
+[color="light"] {
+    color: #fafafa;
+}
+
+[color="em"] {
+    color: #e5233f;
+}
+
+[color="minor"] {
+    color: #898989;
+}
+
+[color="hot"] {
+    color: #d24c0a;
+}
+
+[color="cold"] {
+    color: #70b2e4;
+}
+
+[color="warm"] {
+    color: #fffbb7;
+}
+
+[color="link"] {
+    color: #0a6dd2;
+}
+
+[color="info"] {
+    color: #e5af5e;
+}
+
+[color="safe"] {
+    color: #429a12;
+}
+
+/* Bg
+   ========================================================================== */
+
+/**
+ * 背景色
+ */
+
+[bg="white"] {
+    background-color: #fff;
+}
+
+[bg="black"] {
+    background-color: #000;
+}
+
+[bg="gray"] {
+    background-color: #898989;
+}
+
+[bg="dark"] {
+    background-color: #404141;
+}
+
+[bg="light"] {
+    background-color: #fafafa;
+}
+
+[bg="em"] {
+    background-color: #e5233f;
+}
+
+[bg="minor"] {
+    background-color: #898989;
+}
+
+[bg="hot"] {
+    background-color: #d24c0a;
+}
+
+[bg="cold"] {
+    background-color: #70b2e4;
+}
+
+[bg="warm"] {
+    background-color: #fffbb7;
+}
+
+[bg="link"] {
+    background-color: #0a6dd2;
+}
+
+[bg="info"] {
+    background-color: #e5af5e;
+}
+
+[bg="safe"] {
+    background-color: #429a12;
+}
+
+[bg="none"] {
+    background-color: transparent;
+}
+
+
+/* ==========================================================================
+  |                                                                          |
+  |                               以下为组件                                 |
+  |                                                                          |
+   ========================================================================== */
+
+
+/* Close
+   ========================================================================== */
+
+/**
+ * 关闭/删除按钮
+ */
+
+[close] {
+  display: inline-block;
+  position: relative;
+  flex-grow: 0;
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  font-size: 0;
+  vertical-align: top;
+  border: none;
+  border-radius: 9999px;
+  background-color: rgba(10, 10, 10, 0.2);
+  outline: none;
+  cursor: pointer;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+[close]::before, [close]::after {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform-origin: center center;
+    transform-origin: center center;
+    -webkit-transform: translateX(-50%) translateY(-50%) rotate(45deg) scale(0.5);
+    transform: translateX(-50%) translateY(-50%) rotate(45deg) scale(0.5);
+    background-color: #fff;
+}
+
+[close]::before {
+  height: 4px;
+  width: 100%;
+}
+
+[close]::after {
+  height: 100%;
+  width: 4px;
+}
+
+[clos~="small"] {
+  width: 16px;
+  height: 16px;
+}
+
+[close~="medium"] {
+  width: 28px;
+  height: 28px;
+}
+
+[close~="large"] {
+  width: 32px;
+  height: 32px;
+}
+
+[close~="thin"]::before {
+  height: 2px;
+}
+
+[close~="thin"]::after {
+  width: 2px;
+}
+
+
+/* Cross
+   ========================================================================== */
+
+/**
+ * 十字
+ */
+
+[cross] {
+  display: inline-block;
+  position: relative;
+  width: 24px;
+  height: 24px;
+  font-size: 0;
+}
+
+[cross]::before, [cross]::after {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform-origin: center center;
+    transform-origin: center center;
+    -webkit-transform: translateX(-50%) translateY(-50%) scale(0.5);
+    transform: translateX(-50%) translateY(-50%) scale(0.5);
+    background-color: #fff;
+}
+
+[cross]::before {
+  width: 100%;
+  height: 4px;
+}
+
+[cross]::after {
+  width: 4px;
+  height: 100%;
+}
+
+/* Tick
+   ========================================================================== */
+
+/**
+ * 钩号
+ */
+
+[tick] {
+  display: inline-block;
+  position: relative;
+  width: 24px;
+  height: 24px;
+  font-size: 0;
+  vertical-align: top;
+  border: 2px solid #e5233f;
+  border-radius: 9999px;
+}
+[tick]::before, [tick]::after {
+    content: "";
+    display: block;
+    position: absolute;
+    -webkit-transform-origin: 50% 100%;
+    transform-origin: 50% 100%;
+    -webkit-transform: translateX(-50%) translateY(-50%) rotate(45deg) scale(0.5);
+    transform: translateX(-50%) translateY(-50%) rotate(45deg) scale(0.5);
+    background-color: #e5233f;
+    border-radius: 4px;
+}
+
+[tick]::before {
+  height: 4px;
+  width: 62%;
+  left: 32%;
+  top: 56%;
+}
+
+[tick]::after {
+  height: 100%;
+  width: 4px;
+  left: 44%;
+  top: 22%;
+}
+
+[tick~="small"] {
+  width: 13px;
+  height: 13px;
+  border-width: 1px;
+}
+
+[tick~="small"]::before {
+  height: 2px;
+}
+
+[tick~="small"]::after {
+  width: 2px;
+}
+
+[tick~="fill"] {
+  background: #e5233f;
+}
+
+[tick~="fill"]::before, [tick~="fill"]::after {
+  background-color: #fff;
+}
+
+[tick~="no-circle"] {
+  border: 0 none;
+}
+
+/* Circle
+   ========================================================================== */
+
+/**
+ * 圆圈
+ */
+
+[circle] {
+  display: inline-block;
+  position: relative;
+  width: 24px;
+  height: 24px;
+  font-size: 0;
+  vertical-align: top;
+  border: 2px solid #9c9c9c;
+  border-radius: 9999px;
+}
+
+[circle~="small"] {
+  width: 13px;
+  height: 13px;
+  border-width: 1px;
+}
+
+/* Arrow
+   ========================================================================== */
+
+/**
+ * 箭头
+ */
+
+[arrow] {
+  display: inline-block;
+  position: relative;
+  width: 24px;
+  height: 24px;
+  font-size: 0;
+}
+[arrow]::before {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 20%;
+    top: 20%;
+    width: 100%;
+    height: 100%;
+    border-top: 2px solid #404141;
+    border-left: 2px solid #404141;
+    -webkit-transform-origin: center center;
+    transform-origin: center center;
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5);
+}
+
+[arrow~="left"] {
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+
+[arrow~="right"] {
+  -webkit-transform: rotate(135deg);
+  transform: rotate(135deg);
+}
+
+[arrow~="small"] {
+  width: 14px;
+  height: 14px;
+}
+
+[arrow~="white"]::before {
+  border-color: #fff;
+}
+
+[arrow~="gray"]::before {
+  border-color: #898989;
+}
+
+/* Modal
+   ========================================================================== */
+
+/**
+ * 模态窗
+ */
+
+[modal] {
+  display: none;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 40;
+  overflow: hidden;
+}
+
+[modal].active {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+}
+
+[modal~="center"] {
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+
+/**
+ * 可作为点击目标的半透明遮罩
+ */
+
+[modal-overlay] {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(10, 10, 10, 0.7);
+}
+
+/**
+ * 内容层
+ */
+
+[modal-content] {
+  position: relative;
+  width: 100%;
+  max-height: calc(100vh - 160px);
+  margin: 0 20px;
+  overflow: auto;
+}
+
+@media screen and (min-width: 769px) {
+  [modal-content] {
+    margin: 0 auto;
+    width: 640px;
+    max-height: calc(100vh - 40px);
+  }
+}
+
+/* Sticker
+   ========================================================================== */
+
+/**
+ * 悬停栏
+ */
+
+[sticker] {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  position: fixed;
+  z-index: 20;
+  overflow: hidden;
+}
+
+[sticker~="top"] {
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+[sticker~="bottom"] {
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+[sticker~="center"] {
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  align-items: center;
+}

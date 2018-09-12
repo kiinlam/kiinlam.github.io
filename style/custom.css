@@ -1,0 +1,62 @@
+/* Normalize 补充样式
+   ========================================================================== */
+
+/**
+ * 1. 清除IE文本框右侧的“X”.
+ * 2. 清除IE密码输入框右侧的眼睛.
+ */
+
+input::-ms-clear, input::-ms-reveal {
+    display:none;
+}
+
+/**
+ * 设置类按钮元素的指针类型
+ */
+
+input[type="radio"], input[type="checkbox"], input[type="submit"], input[type="rest"], input[type="button"], button, select {
+    cursor: pointer;
+}
+
+/**
+ * 设置iphoneX可视范围
+ */
+
+body {
+    padding: constant(safe-area-inset-top) constant(safe-area-inset-right) constant(safe-area-inset-bottom) constant(safe-area-inset-left);
+}
+
+
+
+/* 通用自定义样式
+   ========================================================================== */
+
+/**
+ * 用户界面
+ */
+
+.hide {
+    display: none;
+}
+
+.clear-appearance {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+.unresize {
+	-moz-resize: none;
+	resize: none;
+}
+
+.events-mute {
+    pointer-events: none;
+}
+
+[unselectable] {
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-o-user-select: none;
+	user-select: none;
+}
