@@ -1,4 +1,4 @@
-# kiinlam.github.io
+# blog
 My Blog On GitHub Issue Page
 
-https://kiinlam.github.io
+https://github.com/kiinlam/blog/issues
