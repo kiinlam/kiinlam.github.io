@@ -59,6 +59,7 @@
  </section> 
  <script>
 function onBridgeReady() {
+//  现已不可自定义分享内容
   WeixinJSBridge.on('menu:share:appmessage', function(argv) 
   {
     WeixinJSBridge.invoke('sendAppMessage',{
@@ -107,6 +108,7 @@ if (typeof WeixinJSBridge === "undefined"){
         })
             },!1),
     document.getElementById("profile").addEventListener(
+       // 什么作用？？？
       "click",function(){
         alert("profile clicked");
         WeixinJSBridge.invoke("profile",{
@@ -115,6 +117,7 @@ if (typeof WeixinJSBridge === "undefined"){
         })
       },!1),
     document.getElementById("shareWeibo").addEventListener(
+       // 无效
       "click",function(){
         WeixinJSBridge.invoke("shareWeibo",{
           "type":"link",
@@ -131,6 +134,7 @@ if (typeof WeixinJSBridge === "undefined"){
         })
       },!1),
     document.getElementById("scanQRCode").addEventListener(
+       // 无效
       "click",function(){
         WeixinJSBridge.invoke("scanQRCode",{
         })
@@ -233,6 +237,7 @@ if (typeof WeixinJSBridge === "undefined"){
       },!1),
   
     document.getElementById("sendEmail").addEventListener(
+//        无效
       "click",function(){
       WeixinJSBridge.invoke("sendEmail",{
         "title" : "title!",
@@ -252,6 +257,7 @@ if (typeof WeixinJSBridge === "undefined"){
         })
       },!1),
     document.getElementById("getCanIAPPay").addEventListener(
+//        无效
       "click",function(){
       WeixinJSBridge.invoke("getCanIAPPay",{ },
         function(e){
