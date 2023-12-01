@@ -1,0 +1,435 @@
+{
+    "root": {
+        "data": {
+            "id": "98ed39dd87b1",
+            "created": 1609223453,
+            "text": "Fetch API"
+        },
+        "children": [
+            {
+                "data": {
+                    "id": "c85246vw6cw0",
+                    "created": 1609223484076,
+                    "text": "基本用法",
+                    "note": "```\nfetch(url)\n  .then(...)\n  .catch(...)\n```\n\n"
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "c85254txldc0",
+                            "created": 1609223557968,
+                            "text": "Promise",
+                            "note": "```\nfetch('https://api.github.com/users/ruanyf')\n  .then(response => response.json())\n  .then(json => console.log(json))\n  .catch(err => console.log('Request Failed', err)); \n````"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "c85257avrtc0",
+                            "created": 1609223563347,
+                            "text": "await",
+                            "note": "```\nasync function getJSON() {\n  let url = 'https://api.github.com/users/ruanyf';\n  try {\n    let response = await fetch(url);\n    return await response.json();\n  } catch (error) {\n    console.log('Request Failed', error);\n  }\n}\n````"
+                        },
+                        "children": []
+                    }
+                ]
+            },
+            {
+                "data": {
+                    "id": "c8525m4ysyg0",
+                    "created": 1609223595641,
+                    "text": "Response",
+                    "note": "fetch()请求成功以后，得到的是一个 Response 对象(是一个 Stream 对象)。对应服务器的 HTTP 回应\n\n```\nconst response = await fetch(url);\n```"
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "c8526wgshw80",
+                            "created": 1609223696488,
+                            "text": "同步属性",
+                            "note": "HTTP 回应的标头信息（Headers），可以立即读取\n\n```\nasync function fetchText() {\n  let response = await fetch('/readme.txt');\n  console.log(response.status); \n  console.log(response.statusText);\n}\n```"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "c8527phi9y00",
+                                    "created": 1609223759658,
+                                    "text": "Response.ok",
+                                    "note": "Response.ok属性返回一个布尔值，表示请求是否成功，true对应 HTTP 请求的状态码 200 到 299，false对应其他的状态码。"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "c852802oax40",
+                                    "created": 1609223782705,
+                                    "text": "Response.status",
+                                    "note": "Response.status属性返回一个数字，表示 HTTP 回应的状态码（例如200，表示成功请求）。"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "c85283c18q80",
+                                    "created": 1609223789802,
+                                    "text": "Response.statusText",
+                                    "note": "Response.statusText属性返回一个字符串，表示 HTTP 回应的状态信息（例如请求成功以后，服务器返回\"OK\"）。"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "c85285ztybc0",
+                                    "created": 1609223795594,
+                                    "text": "Response.url",
+                                    "note": "Response.url属性返回请求的 URL。如果 URL 存在跳转，该属性返回的是最终 URL。"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "c85288p794w0",
+                                    "created": 1609223801482,
+                                    "text": "Response.type",
+                                    "note": "Response.type属性返回请求的类型。可能的值如下：\n\n* basic：普通请求，即同源请求。\n* cors：跨域请求。\n* error：网络错误，主要用于 Service Worker。\n* opaque：如果fetch()请求的type属性设为no-cors，就会返回这个值，详见请求部分。表示发出的是简单的跨域请求，类似<form>表单的那种跨域请求。\n* opaqueredirect：如果fetch()请求的redirect属性设为manual，就会返回这个值，详见请求部分。"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "c85298zptyw0",
+                                    "created": 1609223880482,
+                                    "text": "Response.redirected",
+                                    "note": "Response.redirected属性返回一个布尔值，表示请求是否发生过跳转。"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "c853cz1a8200",
+                                    "created": 1609226993375,
+                                    "text": "Response.headers",
+                                    "note": " Headers 对象，对应 HTTP 回应的所有标头\n使用for...of循环进行遍历\n\n```\nconst response = await fetch(url);\n\nfor (let [key, value] of response.headers) { \n  console.log(`${key} : ${value}`);  \n}\n\n// 或者\nfor (let [key, value] of response.headers.entries()) { \n  console.log(`${key} : ${value}`);  \n}\n```"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c853dil12bs0",
+                                            "created": 1609227035928,
+                                            "text": "Headers.get()",
+                                            "note": "根据指定的键名，返回键值\n\n```\nlet response =  await  fetch(url);  \nresponse.headers.get('Content-Type')\n// application/json; charset=utf-8\n```"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c853du9hfiw0",
+                                            "created": 1609227061351,
+                                            "text": "Headers.has()",
+                                            "note": "返回一个布尔值，表示是否包含某个标头"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c853e22vuc00",
+                                            "created": 1609227078367,
+                                            "text": "Headers.set()",
+                                            "note": "将指定的键名设置为新的键值，如果该键名不存在则会添加"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c853e9jqwyg0",
+                                            "created": 1609227094624,
+                                            "text": "Headers.append()",
+                                            "note": "添加标头"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c853efpm0z40",
+                                            "created": 1609227108039,
+                                            "text": "Headers.delete()",
+                                            "note": "删除标头"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c853ekn13fk0",
+                                            "created": 1609227118767,
+                                            "text": "Headers.keys()",
+                                            "note": "返回一个遍历器，可以依次遍历所有键名\n\n```\n// 键名\nfor(let key of myHeaders.keys()) {\n  console.log(key);\n}\n```"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c853ersrfuo0",
+                                            "created": 1609227134351,
+                                            "text": "Headers.values()",
+                                            "note": "返回一个遍历器，可以依次遍历所有键值\n\n```\n\n// 键值\nfor(let value of myHeaders.keys()) {\n  console.log(value);\n}\n```"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c853ewaby480",
+                                            "created": 1609227144120,
+                                            "text": "Headers.entries()",
+                                            "note": "返回一个遍历器，可以依次遍历所有键值对（[key, value]）"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c853f1yhar40",
+                                            "created": 1609227156464,
+                                            "text": "Headers.forEach()",
+                                            "note": "依次遍历标头，每个标头都会执行一次参数函数\n\n```\nlet response = await fetch(url);\nresponse.headers.forEach(\n  (value, key) => console.log(key, ':', value)\n);\n```"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "c853gaj0tug0",
+                            "created": 1609227253485,
+                            "text": "异步方法"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "c853gfl065c0",
+                                    "created": 1609227264489,
+                                    "text": "response.text()",
+                                    "note": "得到文本字符串\n\n```\nconst response = await fetch('/users.html');\nconst body = await response.text();\ndocument.body.innerHTML = body\n```"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "c853gksbbsg0",
+                                    "created": 1609227275815,
+                                    "text": "response.json()",
+                                    "note": "得到 JSON 对象"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "c853goc5b7s0",
+                                    "created": 1609227283544,
+                                    "text": "response.blob()",
+                                    "note": "得到二进制 Blob 对象\n\n取图片文件\n```\nconst response = await fetch('flower.jpg');\nconst myBlob = await response.blob();\nconst objectURL = URL.createObjectURL(myBlob);\n\nconst myImage = document.querySelector('img');\nmyImage.src = objectURL;\n```"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "c853gr0pjcg0",
+                                    "created": 1609227289383,
+                                    "text": "response.formData()",
+                                    "note": "得到 FormData 表单对象"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "c853gtknu800",
+                                    "created": 1609227294943,
+                                    "text": "response.arrayBuffer()",
+                                    "note": "得到二进制 ArrayBuffer 对象\n\n获取流媒体文件\n```\nconst audioCtx = new window.AudioContext();\nconst source = audioCtx.createBufferSource();\n\nconst response = await fetch('song.ogg');\nconst buffer = await response.arrayBuffer();\n\nconst decodeData = await audioCtx.decodeAudioData(buffer);\nsource.buffer = buffer;\nsource.connect(audioCtx.destination);\nsource.loop = true;\n```"
+                                },
+                                "children": []
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "c853icktdg00",
+                            "created": 1609227414675,
+                            "text": "Response.clone()",
+                            "note": "创建Response对象的副本"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "c853ip5wo540",
+                            "created": 1609227442072,
+                            "text": "Response.redirect()"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "c853j536jcg0",
+                            "created": 1609227476736,
+                            "text": "Response.body",
+                            "note": "Response.body属性是 Response 对象暴露出的底层接口，返回一个 ReadableStream 对象\n可以用来分块读取内容，应用之一就是显示下载的进度。\n\n```\nconst response = await fetch('flower.jpg');\nconst reader = response.body.getReader();\n\nwhile(true) {\n  const {done, value} = await reader.read();\n\n  if (done) {\n    break;\n  }\n\n  console.log(`Received ${value.length} bytes`)\n}\n```\n\n上面示例中，response.body.getReader()方法返回一个遍历器。这个遍历器的read()方法每次返回一个对象，表示本次读取的内容块。\n\n这个对象的done属性是一个布尔值，用来判断有没有读完；value属性是一个 arrayBuffer 数组，表示内容块的内容，而value.length属性是当前块的大小。"
+                        },
+                        "children": []
+                    }
+                ]
+            },
+            {
+                "data": {
+                    "id": "c853kwi9lcg0",
+                    "created": 1609227614785,
+                    "text": "定制HTTP请求",
+                    "note": "fetch()的第一个参数是 URL，还可以接受第二个参数，作为配置对象，定制发出的 HTTP 请求。\n\nHTTP 请求的方法、标头、数据体都在这个对象里面设置。\n\n```\nfetch(url, optionObj)\n```\n",
+                    "expandState": "expand"
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "c853m3a1c4w0",
+                            "created": 1609227707889,
+                            "text": "POST 请求",
+                            "note": "\n```\nconst response = await fetch(url, {\n  method: 'POST',\n  headers: {\n    \"Content-type\": \"application/x-www-form-urlencoded; charset=UTF-8\",\n  },\n  body: 'foo=bar&lorem=ipsum',\n});\n\nconst json = await response.json();\n```"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "c853mc5zfxs0",
+                            "created": 1609227727235,
+                            "text": "JSON",
+                            "note": "```\nconst user =  { name:  'John', surname:  'Smith'  };\nconst response = await fetch('/article/fetch/post/user', {\n  method: 'POST',\n  headers: {\n   'Content-Type': 'application/json;charset=utf-8'\n  }, \n  body: JSON.stringify(user) \n});\n```"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "c853n36972g0",
+                            "created": 1609227786025,
+                            "text": "表单",
+                            "note": "```\nconst form = document.querySelector('form');\n\nconst response = await fetch('/users', {\n  method: 'POST',\n  body: new FormData(form)\n})\n```"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "c853ncd6hhk0",
+                            "created": 1609227806034,
+                            "text": "文件上传",
+                            "note": "```\nconst input = document.querySelector('input[type=\"file\"]');\n\nconst data = new FormData();\ndata.append('file', input.files[0]);\ndata.append('user', 'foo');\n\nfetch('/avatars', {\n  method: 'POST',\n  body: data\n});\n```\n\n上传二进制文件时，不用修改标头的Content-Type，浏览器会自动设置。"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "c853o0smas80",
+                            "created": 1609227859211,
+                            "text": "上传二进制数据",
+                            "note": "fetch()也可以直接上传二进制数据，将 Blob 或 arrayBuffer 数据放在body属性里面。\n\n```\nlet blob = await new Promise(resolve =>   \n  canvasElem.toBlob(resolve,  'image/png')\n);\n\nlet response = await fetch('/article/fetch/post/image', {\n  method:  'POST',\n  body: blob\n});\n```",
+                            "expandState": "expand"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "c853of26ym80",
+                            "created": 1609227890265,
+                            "text": "配置对象 API",
+                            "note": "```\nconst response = fetch(url, {\n  method: \"GET\",\n  headers: {\n    \"Content-Type\": \"text/plain;charset=UTF-8\"\n  },\n  body: undefined,\n  referrer: \"about:client\",\n  referrerPolicy: \"no-referrer-when-downgrade\",\n  mode: \"cors\", \n  credentials: \"same-origin\",\n  cache: \"default\",\n  redirect: \"follow\",\n  integrity: \"\",\n  keepalive: false,\n  signal: undefined\n});\n```"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "c853qgagnd40",
+                                    "created": 1609228049670,
+                                    "text": "cache"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "c853qiqjjgw0",
+                                    "created": 1609228054996,
+                                    "text": "mode"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "c853qjykhtc0",
+                                    "created": 1609228057658,
+                                    "text": "credential"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "c853rgbi1gw0",
+                                    "created": 1609228128097,
+                                    "text": "signal"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "c853rijz16g0",
+                                    "created": 1609228132962,
+                                    "text": "keepalive"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "c853rmqrzkg0",
+                                    "created": 1609228142081,
+                                    "text": "redirect"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "c853sfcjzog0",
+                                    "created": 1609228204348,
+                                    "text": "integrity"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "c853shyq34w0",
+                                    "created": 1609228210042,
+                                    "text": "referrer"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "c853wwkryds0",
+                                    "created": 1609228555307,
+                                    "text": "referrerPolicy"
+                                },
+                                "children": []
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "c853zd7pt600",
+                            "created": 1609228748251,
+                            "text": "取消请求",
+                            "note": "使用AbortController对象\n\n```\nlet controller = new AbortController();\nfetch(url, {\n  signal: controller.signal\n});\n\nsignal.addEventListener('abort',\n  () => console.log('abort!')\n);\n\ncontroller.abort(); // 取消\n\nconsole.log(signal.aborted); // true\n```\n\n上面示例中，首先新建 AbortController 实例，然后发送fetch()请求，配置对象的signal属性必须指定接收 AbortController 实例发送的信号controller.signal。\n\ncontroller.abort()方法用于发出取消信号。这时会触发abort事件，这个事件可以监听，也可以通过signal.aborted属性判断取消信号是否已经发出。"
+                        },
+                        "children": []
+                    }
+                ]
+            }
+        ]
+    },
+    "template": "right",
+    "theme": "fresh-blue",
+    "version": "1.4.43"
+}
